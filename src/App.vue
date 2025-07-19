@@ -1464,8 +1464,11 @@ section {
 
 @media (max-width: 768px) {
   .hero {
-    min-height: 100vh !important;
-    padding-top: 80px !important;
+    min-height: calc(100vh - 70px) !important;
+    padding-top: 0 !important;
+    display: flex !important;
+    align-items: flex-start !important;
+    margin-top: 0 !important;
   }
   
   .hero-content {
@@ -1475,6 +1478,8 @@ section {
     margin-right: 0 !important;
     padding-left: 5% !important;
     padding-right: 5% !important;
+    align-items: center !important;
+    text-align: center !important;
   }
   
   .hero-brand-showcase {
@@ -1483,7 +1488,7 @@ section {
     right: auto !important;
     transform: none !important;
     max-width: 280px !important;
-    margin: 2rem auto 1rem auto !important;
+    margin: 0 auto 2rem auto !important;
     order: -1 !important;
   }
   
@@ -1494,6 +1499,46 @@ section {
   .hero-text {
     text-align: center !important;
     max-width: 100% !important;
+    order: 1 !important;
+  }
+  
+  .hero h1 {
+    font-size: 1.8rem !important;
+    line-height: 1.3 !important;
+    margin-bottom: 1rem !important;
+  }
+  
+  .hero p {
+    font-size: 1rem !important;
+    line-height: 1.5 !important;
+    margin-bottom: 2rem !important;
+  }
+  
+  .trust-indicators {
+    flex-direction: row !important;
+    justify-content: center !important;
+    margin-bottom: 2rem !important;
+    gap: 1rem !important;
+    width: 100% !important;
+    flex-wrap: nowrap !important;
+    align-items: center !important;
+  }
+  
+  .indicator {
+    font-size: 0.8rem !important;
+  }
+  
+  .cta-group {
+    flex-direction: column !important;
+    gap: 1rem !important;
+    width: 100% !important;
+  }
+  
+  .hero-btn, .hero-btn-secondary {
+    width: 100% !important;
+    padding: 0.9rem 1.5rem !important;
+    font-size: 0.95rem !important;
+    text-align: center !important;
   }
 }
 
@@ -3677,99 +3722,45 @@ section {
   }
 }
 
-@media (max-width: 768px) {
-  .hero-brand-showcase {
-    top: 100px;
-    max-width: 460px; /* Doubled from 230px */
-  }
-  
-  .hero h1 {
-    font-size: 2.2rem;
-  }
-  
-  .hero p {
-    font-size: 1.1rem;
-  }
-  
-  .hero-btn, .hero-btn-secondary {
-    padding: 0.85rem 1.5rem;
-    font-size: 0.9rem;
-  }
-  
-  /* Add more forceful styles for trust indicators */
-  .trust-indicators {
-    flex-direction: row !important;
-    justify-content: center !important;
-    margin-bottom: 2rem !important;
-    gap: 1.2rem !important;
-    width: 100% !important;
-    flex-wrap: nowrap !important;
-    align-items: center !important;
-  }
-  
-  .hero-content {
-    padding-top: 180px;
-  }
-  
-  .badge-container {
-    margin-bottom: 1.5rem;
-    margin-top: 1rem;
-  }
-}
+
 
 @media (max-width: 480px) {
   .hero-brand-showcase {
-    top: 90px;
-    max-width: 360px; /* Doubled from 180px */
+    max-width: 220px !important;
+    margin-bottom: 1.5rem !important;
   }
   
   .hero h1 {
-    font-size: 1.8rem;
+    font-size: 1.6rem !important;
+    line-height: 1.2 !important;
   }
   
   .hero p {
-    font-size: 1rem;
-  }
-  
-  .cta-group {
-    flex-direction: column;
-    width: 100%;
-  }
-  
-  .hero-btn, .hero-btn-secondary {
-    width: 100%;
-    text-align: center;
-  }
-  
-  .badge-container {
-    margin-bottom: 1.5rem;
-    margin-top: 1rem;
+    font-size: 0.9rem !important;
+    margin-bottom: 1.5rem !important;
   }
   
   .badge {
-    font-size: 0.7rem;
+    font-size: 0.7rem !important;
+    padding: 0.5rem 1rem !important;
   }
   
-  /* Add more forceful styles for trust indicators on small screens */
   .trust-indicators {
     gap: 0.8rem !important;
-    justify-content: center !important;
-    padding: 0 5px !important;
-    margin: 0 auto 2rem auto !important;
-    display: flex !important;
-    flex-direction: row !important;
-    flex-wrap: nowrap !important;
+    margin-bottom: 1.5rem !important;
   }
   
   .indicator {
-    font-size: 0.85rem !important;
-    padding: 0 !important;
-    margin: 0 !important;
+    font-size: 0.75rem !important;
   }
   
   .indicator i {
+    font-size: 0.8rem !important;
+  }
+  
+  .hero-btn, .hero-btn-secondary {
+    padding: 0.8rem 1.2rem !important;
     font-size: 0.9rem !important;
-    margin-right: 0.3rem !important;
   }
 }
 
@@ -4123,6 +4114,10 @@ section {
 
 /* Mobile-responsive adjustments */
 @media (max-width: 768px) {
+  body {
+    padding-top: 70px !important;
+  }
+  
   .update-grid, .advantages-grid, .process-steps-grid, .testimonial-grid {
     grid-template-columns: 1fr !important;
     gap: 1.5rem !important;
@@ -4135,6 +4130,11 @@ section {
   /* Mobile navbar - force hide desktop navigation */
   .navbar {
     padding: 0.5rem 0 !important;
+    position: fixed !important;
+    top: 0 !important;
+    left: 0 !important;
+    right: 0 !important;
+    z-index: 1000 !important;
   }
   
   .navbar-content {
@@ -4142,14 +4142,18 @@ section {
     align-items: center !important;
     min-height: 60px !important;
     padding: 0 4% !important;
+    width: 100% !important;
+    box-sizing: border-box !important;
   }
   
   .logo-container {
     height: 100% !important;
+    display: flex !important;
+    align-items: center !important;
   }
   
   .logo-image {
-    height: 50px !important;
+    height: 45px !important;
     width: auto !important;
   }
   
