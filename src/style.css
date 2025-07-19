@@ -71,7 +71,14 @@ button:focus-visible {
   text-decoration: none !important;
 }
 
-/* Mobile menu toggle */
+/* Desktop nav links */
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+/* Mobile menu toggle button */
 .mobile-menu-button {
   display: none;
   background: none;
@@ -80,27 +87,63 @@ button:focus-visible {
   color: inherit;
   cursor: pointer;
 }
+
+/* Overlay behind the drawer */
+.overlay {
+  display: none;
+}
+
+/* Drawer container */
+.mobile-menu-drawer {
+  display: none;
+}
+
 @media (max-width: 768px) {
+  .nav-links {
+    display: none;
+  }
   .mobile-menu-button {
     display: block;
   }
-  .nav-right {
-    position: relative;
-  }
-  .nav-links {
-    display: none;
-    position: absolute;
-    top: 100%;
+  .overlay {
+    display: block;
+    position: fixed;
+    top: 0;
     left: 0;
-    width: 100%;
-    flex-direction: column;
-    background-color: #242424;
-    gap: 1rem;
-    padding: 1rem;
-    z-index: 1000;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 999;
   }
-  .nav-links.open {
+  .mobile-menu-drawer {
+    display: block;
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 80%;
+    max-width: 300px;
+    background-color: #242424;
+    transform: translateX(-100%);
+    transition: transform 0.3s ease;
+    z-index: 1000;
+    overflow-y: auto;
+  }
+  .mobile-menu-drawer.open {
+    transform: translateX(0);
+  }
+  .mobile-nav-links {
+    list-style: none;
+    margin: 0;
+    padding: 2rem 1rem;
     display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+  .mobile-nav-links a {
+    color: inherit;
+    font-size: 1.2rem;
+    text-decoration: none;
   }
 }
 

@@ -1,6 +1,6 @@
 <script setup>
 // Placeholder for any future script logic
-import { ref, onMounted, computed } from 'vue';
+import { ref, onMounted, computed, watch } from 'vue';
 import { useI18n } from 'vue-i18n';
 
 // Import LanguageSwitcher
@@ -64,7 +64,21 @@ const statsConfig = [
   { icon: 'fa-passport', value: '98%', labelKey: 'stats.visaSuccess' }
 ];
 
+// Mobile drawer state and nav items
 const mobileMenuOpen = ref(false);
+const navItems = [
+  { href: '#', labelKey: 'nav.home' },
+  { href: '#avantajlar', labelKey: 'nav.advantages' },
+  { href: '#basvuru-sureci', labelKey: 'nav.application' },
+  { href: '#referanslar', labelKey: 'nav.testimonials' },
+  { href: '#universiteler', labelKey: 'nav.universities' },
+  { href: '#stats', labelKey: 'nav.stats' },
+  { href: '#hakkimizda', labelKey: 'nav.about' },
+  { href: '#updates', labelKey: 'nav.news' },
+  { href: '#iletisim', labelKey: 'nav.contact' }
+];
+// Prevent background scroll when drawer is open
+watch(mobileMenuOpen, val => { document.body.style.overflow = val ? 'hidden' : '' });
 
 const newsImages = ref([
   '/images/news1.jpeg',
@@ -257,6 +271,7 @@ const aboutFeatures = computed(() => tm('about.features'));
     <!-- Navbar -->
     <nav class="navbar">
       <div class="navbar-content">
+        <!-- Hamburger toggle -->
         <button class="mobile-menu-button" @click="mobileMenuOpen = !mobileMenuOpen">
           <i :class="mobileMenuOpen ? 'fas fa-times' : 'fas fa-bars'"></i>
         </button>
@@ -264,21 +279,27 @@ const aboutFeatures = computed(() => tm('about.features'));
           <img :src="logoSrc" :srcset="logoSrc + ' 2x'" :alt="locale.value === 'en' ? 'IKRA Education Consultancy Logo' : 'İKRA Eğitim Danışmanlığı Logo'" class="logo-image">
         </a>
         <div class="nav-right">
-        <ul :class="['nav-links', { open: mobileMenuOpen }]">
-            <li><a href="#">{{ t('nav.home') }}</a></li>
-            <li><a href="#avantajlar">{{ t('nav.advantages') }}</a></li>
-            <li><a href="#basvuru-sureci">{{ t('nav.application') }}</a></li>
-            <li><a href="#referanslar">{{ t('nav.testimonials') }}</a></li>
-            <li><a href="#universiteler">{{ t('nav.universities') }}</a></li>
-            <li><a href="#stats">{{ t('nav.stats') }}</a></li>
-            <li><a href="#hakkimizda">{{ t('nav.about') }}</a></li>
-            <li><a href="#updates">{{ t('nav.news') }}</a></li>
-            <li><a href="#iletisim">{{ t('nav.contact') }}</a></li>
-        </ul>
+          <!-- Desktop nav -->
+          <ul class="nav-links">
+            <li v-for="item in navItems" :key="item.labelKey">
+              <a :href="item.href">{{ t(item.labelKey) }}</a>
+            </li>
+          </ul>
           <LanguageSwitcher />
         </div>
       </div>
     </nav>
+    <!-- Overlay behind drawer -->
+    <div v-if="mobileMenuOpen" class="overlay" @click="mobileMenuOpen = false"></div>
+    <!-- Off-canvas mobile drawer -->
+    <div class="mobile-menu-drawer" :class="{ open: mobileMenuOpen }">
+      <ul class="mobile-nav-links">
+        <li v-for="item in navItems" :key="item.labelKey">
+          <a :href="item.href" @click="mobileMenuOpen = false">{{ t(item.labelKey) }}</a>
+        </li>
+      </ul>
+      <LanguageSwitcher />
+    </div>
 
     <!-- Hero Section (Enhanced) -->
     <section class="hero container-full-width">
