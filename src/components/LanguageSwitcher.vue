@@ -228,22 +228,39 @@ watchEffect(() => {
   }
 
 @media (max-width: 768px) {
+  .language-switcher {
+    margin-left: 0.5rem;
+  }
+  
   .language-button {
-    padding: 0.3rem 0.6rem;
-    min-width: 64px;
-    height: 30px;
+    padding: 0.35rem 0.7rem;
+    min-width: 68px;
+    height: 32px;
+    font-size: 0.85rem;
+  }
+  
+  .language-code {
+    font-size: 0.8rem;
   }
   
   .language-divider {
-    height: 12px;
+    height: 14px;
+  }
+  
+  .language-icon {
+    width: 16px;
+    height: 16px;
   }
   
   .language-dropdown {
-    min-width: 110px;
+    min-width: 120px;
+    right: 0;
+    top: calc(100% + 8px);
   }
   
   .language-option {
-    padding: 0.6rem 0.9rem;
+    padding: 0.7rem 1rem;
+    font-size: 0.85rem;
   }
 }
 </style> 

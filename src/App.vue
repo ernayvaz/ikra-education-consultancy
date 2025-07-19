@@ -929,6 +929,7 @@ section {
   margin: 0;
   padding: 0 5%;
   box-sizing: border-box;
+  min-height: 80px;
 }
 
 .nav-container {
@@ -941,6 +942,7 @@ section {
   display: flex;
   align-items: center;
   gap: 2rem;
+  height: 100%;
 }
 
 .logo-container {
@@ -948,6 +950,9 @@ section {
   position: relative;
   margin: 0;
   padding: 0;
+  display: flex;
+  align-items: center;
+  height: 100%;
 }
 
 .logo-image {
@@ -1087,6 +1092,8 @@ section {
   max-width: 1000px;
   margin-left: 10%;
   padding-top: 40px; /* Add padding to create more space from navbar */
+  width: 100%;
+  box-sizing: border-box;
 }
 
 .hero-text {
@@ -1456,13 +1463,37 @@ section {
 }
 
 @media (max-width: 768px) {
+  .hero {
+    min-height: 100vh !important;
+    padding-top: 80px !important;
+  }
+  
+  .hero-content {
+    padding-top: 20px !important;
+    max-width: 100% !important;
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+    padding-left: 5% !important;
+    padding-right: 5% !important;
+  }
+  
   .hero-brand-showcase {
-    top: 100px;
-    max-width: 460px; /* Doubled from 230px */
+    position: relative !important;
+    top: 0 !important;
+    right: auto !important;
+    transform: none !important;
+    max-width: 280px !important;
+    margin: 2rem auto 1rem auto !important;
+    order: -1 !important;
   }
   
   .hero-brand-logo {
-    max-width: 360px; /* Doubled from 180px */
+    max-width: 250px !important;
+  }
+  
+  .hero-text {
+    text-align: center !important;
+    max-width: 100% !important;
   }
 }
 
@@ -4102,9 +4133,24 @@ section {
   .container { padding: 0 1rem !important; }
   
   /* Mobile navbar - force hide desktop navigation */
+  .navbar {
+    padding: 0.5rem 0 !important;
+  }
+  
   .navbar-content {
     justify-content: space-between !important;
     align-items: center !important;
+    min-height: 60px !important;
+    padding: 0 4% !important;
+  }
+  
+  .logo-container {
+    height: 100% !important;
+  }
+  
+  .logo-image {
+    height: 50px !important;
+    width: auto !important;
   }
   
   .nav-links,
@@ -4115,7 +4161,8 @@ section {
   .nav-right {
     display: flex !important;
     align-items: center !important;
-    gap: 1rem !important;
+    gap: 0.8rem !important;
+    height: 100% !important;
   }
 }
 <style scoped>

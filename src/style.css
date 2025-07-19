@@ -234,6 +234,15 @@ button:focus-visible {
 @media (max-width: 768px) {
   .mobile-menu-button {
     display: flex !important;
+    width: 36px !important;
+    height: 36px !important;
+    padding: 6px !important;
+  }
+  
+  .hamburger-line {
+    width: 20px !important;
+    height: 2px !important;
+    margin: 1.5px 0 !important;
   }
   
   .desktop-nav {
