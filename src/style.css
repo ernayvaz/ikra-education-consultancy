@@ -83,7 +83,8 @@ button:focus-visible {
   align-items: center;
   width: 40px;
   height: 40px;
-  z-index: 1001;
+  z-index: 10001;
+  position: relative;
 }
 
 .hamburger-line {
@@ -232,21 +233,36 @@ button:focus-visible {
 /* Responsive Behavior */
 @media (max-width: 768px) {
   .mobile-menu-button {
-    display: flex;
+    display: flex !important;
   }
   
   .desktop-nav {
-    display: none;
+    display: none !important;
+  }
+  
+  /* Force hide navbar content on mobile */
+  .navbar .nav-links {
+    display: none !important;
+  }
+  
+  /* Ensure mobile menu overlay takes priority */
+  .mobile-menu-overlay {
+    z-index: 9999 !important;
   }
 }
 
 @media (min-width: 769px) {
   .mobile-menu-button {
-    display: none;
+    display: none !important;
   }
   
   .desktop-nav {
-    display: flex;
+    display: flex !important;
+  }
+  
+  /* Hide mobile menu overlay on desktop */
+  .mobile-menu-overlay {
+    display: none !important;
   }
 }
 

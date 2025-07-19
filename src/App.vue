@@ -975,6 +975,17 @@ section {
   padding: 0;
 }
 
+.desktop-nav {
+  display: flex;
+}
+
+@media (max-width: 768px) {
+  .nav-links,
+  .desktop-nav {
+    display: none !important;
+  }
+}
+
 .nav-links a {
   text-decoration: none;
   color: white;
@@ -4079,7 +4090,7 @@ section {
 /* Also add this to your navbar links to include the new section */
 </style>
 
-// Insert mobile-responsive adjustments
+/* Mobile-responsive adjustments */
 @media (max-width: 768px) {
   .update-grid, .advantages-grid, .process-steps-grid, .testimonial-grid {
     grid-template-columns: 1fr !important;
@@ -4089,18 +4100,24 @@ section {
   .hero .section-title { font-size: 2rem !important; }
   .hero p { font-size: 1rem !important; }
   .container { padding: 0 1rem !important; }
+  
+  /* Mobile navbar - force hide desktop navigation */
   .navbar-content {
-    flex-direction: column !important;
-    align-items: flex-start !important;
+    justify-content: space-between !important;
+    align-items: center !important;
   }
-  .nav-links {
-    flex-wrap: wrap !important;
+  
+  .nav-links,
+  .desktop-nav {
+    display: none !important;
+  }
+  
+  .nav-right {
+    display: flex !important;
+    align-items: center !important;
     gap: 1rem !important;
-    justify-content: flex-start !important;
   }
 }
-
-// End of mobile adjustments
 <style scoped>
 /* Ensure email link in contact section displays in white */
 .contact-text a {
