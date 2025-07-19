@@ -1,6 +1,6 @@
 <script setup>
 // Placeholder for any future script logic
-import { ref, onMounted, computed, watch } from 'vue';
+import { ref, onMounted, computed } from 'vue';
 import { useI18n } from 'vue-i18n';
 
 // Import LanguageSwitcher
@@ -64,21 +64,7 @@ const statsConfig = [
   { icon: 'fa-passport', value: '98%', labelKey: 'stats.visaSuccess' }
 ];
 
-// Mobile drawer state and nav items
 const mobileMenuOpen = ref(false);
-const navItems = [
-  { href: '#', labelKey: 'nav.home' },
-  { href: '#avantajlar', labelKey: 'nav.advantages' },
-  { href: '#basvuru-sureci', labelKey: 'nav.application' },
-  { href: '#referanslar', labelKey: 'nav.testimonials' },
-  { href: '#universiteler', labelKey: 'nav.universities' },
-  { href: '#stats', labelKey: 'nav.stats' },
-  { href: '#hakkimizda', labelKey: 'nav.about' },
-  { href: '#updates', labelKey: 'nav.news' },
-  { href: '#iletisim', labelKey: 'nav.contact' }
-];
-// Prevent background scroll when drawer is open
-watch(mobileMenuOpen, val => { document.body.style.overflow = val ? 'hidden' : '' });
 
 const newsImages = ref([
   '/images/news1.jpeg',
@@ -111,6 +97,29 @@ onMounted(() => {
       }, 5000);
     }
   }, 500); // Small delay to ensure DOM is fully loaded
+
+  // Close mobile menu on escape key press
+  const handleEscapeKey = (event) => {
+    if (event.key === 'Escape' && mobileMenuOpen.value) {
+      mobileMenuOpen.value = false;
+    }
+  };
+
+  // Close mobile menu when clicking outside
+  const handleClickOutside = (event) => {
+    if (mobileMenuOpen.value && !event.target.closest('.mobile-menu-content') && !event.target.closest('.mobile-menu-button')) {
+      mobileMenuOpen.value = false;
+    }
+  };
+
+  document.addEventListener('keydown', handleEscapeKey);
+  document.addEventListener('click', handleClickOutside);
+
+  // Cleanup on unmount
+  const cleanup = () => {
+    document.removeEventListener('keydown', handleEscapeKey);
+    document.removeEventListener('click', handleClickOutside);
+  };
 
   // Navbar scroll effect
   window.addEventListener('scroll', () => {
@@ -271,35 +280,60 @@ const aboutFeatures = computed(() => tm('about.features'));
     <!-- Navbar -->
     <nav class="navbar">
       <div class="navbar-content">
-        <!-- Hamburger toggle -->
-        <button class="mobile-menu-button" @click="mobileMenuOpen = !mobileMenuOpen">
-          <i :class="mobileMenuOpen ? 'fas fa-times' : 'fas fa-bars'"></i>
-        </button>
         <a href="#" class="logo-container">
           <img :src="logoSrc" :srcset="logoSrc + ' 2x'" :alt="locale.value === 'en' ? 'IKRA Education Consultancy Logo' : 'İKRA Eğitim Danışmanlığı Logo'" class="logo-image">
         </a>
         <div class="nav-right">
-          <!-- Desktop nav -->
-          <ul class="nav-links">
-            <li v-for="item in navItems" :key="item.labelKey">
-              <a :href="item.href">{{ t(item.labelKey) }}</a>
-            </li>
+          <!-- Desktop Navigation -->
+          <ul class="nav-links desktop-nav">
+            <li><a href="#">{{ t('nav.home') }}</a></li>
+            <li><a href="#avantajlar">{{ t('nav.advantages') }}</a></li>
+            <li><a href="#basvuru-sureci">{{ t('nav.application') }}</a></li>
+            <li><a href="#referanslar">{{ t('nav.testimonials') }}</a></li>
+            <li><a href="#universiteler">{{ t('nav.universities') }}</a></li>
+            <li><a href="#stats">{{ t('nav.stats') }}</a></li>
+            <li><a href="#hakkimizda">{{ t('nav.about') }}</a></li>
+            <li><a href="#updates">{{ t('nav.news') }}</a></li>
+            <li><a href="#iletisim">{{ t('nav.contact') }}</a></li>
           </ul>
           <LanguageSwitcher />
+          <!-- Mobile Menu Button -->
+          <button class="mobile-menu-button" @click="mobileMenuOpen = !mobileMenuOpen" :aria-expanded="mobileMenuOpen">
+            <span class="hamburger-line" :class="{ active: mobileMenuOpen }"></span>
+            <span class="hamburger-line" :class="{ active: mobileMenuOpen }"></span>
+            <span class="hamburger-line" :class="{ active: mobileMenuOpen }"></span>
+          </button>
         </div>
       </div>
     </nav>
-    <!-- Overlay behind drawer -->
-    <div v-if="mobileMenuOpen" class="overlay" @click="mobileMenuOpen = false"></div>
-    <!-- Off-canvas mobile drawer -->
-    <div class="mobile-menu-drawer" :class="{ open: mobileMenuOpen }">
-      <ul class="mobile-nav-links">
-        <li v-for="item in navItems" :key="item.labelKey">
-          <a :href="item.href" @click="mobileMenuOpen = false">{{ t(item.labelKey) }}</a>
-        </li>
-      </ul>
-      <LanguageSwitcher />
-    </div>
+    
+    <!-- Mobile Full-Screen Overlay Menu -->
+    <transition name="mobile-menu">
+      <div v-if="mobileMenuOpen" class="mobile-menu-overlay" @click="mobileMenuOpen = false">
+        <div class="mobile-menu-content" @click.stop>
+          <div class="mobile-menu-header">
+            <img :src="logoSrc" :alt="locale.value === 'en' ? 'IKRA Education Consultancy Logo' : 'İKRA Eğitim Danışmanlığı Logo'" class="mobile-logo">
+            <button class="mobile-close-button" @click="mobileMenuOpen = false">
+              <i class="fas fa-times"></i>
+            </button>
+          </div>
+          <nav class="mobile-nav-links">
+            <a href="#" @click="mobileMenuOpen = false" class="mobile-nav-link">{{ t('nav.home') }}</a>
+            <a href="#avantajlar" @click="mobileMenuOpen = false" class="mobile-nav-link">{{ t('nav.advantages') }}</a>
+            <a href="#basvuru-sureci" @click="mobileMenuOpen = false" class="mobile-nav-link">{{ t('nav.application') }}</a>
+            <a href="#referanslar" @click="mobileMenuOpen = false" class="mobile-nav-link">{{ t('nav.testimonials') }}</a>
+            <a href="#universiteler" @click="mobileMenuOpen = false" class="mobile-nav-link">{{ t('nav.universities') }}</a>
+            <a href="#stats" @click="mobileMenuOpen = false" class="mobile-nav-link">{{ t('nav.stats') }}</a>
+            <a href="#hakkimizda" @click="mobileMenuOpen = false" class="mobile-nav-link">{{ t('nav.about') }}</a>
+            <a href="#updates" @click="mobileMenuOpen = false" class="mobile-nav-link">{{ t('nav.news') }}</a>
+            <a href="#iletisim" @click="mobileMenuOpen = false" class="mobile-nav-link">{{ t('nav.contact') }}</a>
+          </nav>
+          <div class="mobile-menu-footer">
+            <LanguageSwitcher />
+          </div>
+        </div>
+      </div>
+    </transition>
 
     <!-- Hero Section (Enhanced) -->
     <section class="hero container-full-width">
