@@ -20,7 +20,7 @@ export default {
     discoverAdvantages: 'AVANTAJLARI KEŞFET',
     experience: '5+ Yıllık Tecrübe',
     students: '1200+ Mutlu Öğrenci',
-    visaSuccess: '%98 Vize Başarısı',
+    visaSuccess: '%%98 Vize Başarısı',
     exploreMore: 'DAHA FAZLA KEŞFET'
   },
   advantages: {
@@ -103,7 +103,7 @@ export default {
     },
     step3: {
       title: 'Okul Kabulü & Vize İşlemleri',
-      description: 'Seçilen üniversiteye başvuru sürecinizi yönetiyor, kabul mektuplarınızı takip ediyor ve %98 başarı oranımızla öğrenci vizesi başvuru sürecinizde her adımda yanınızda oluyoruz. Tüm yasal süreçlerde eksiksiz rehberlik sunuyoruz.'
+      description: 'Seçilen üniversiteye başvuru sürecinizi yönetiyor, kabul mektuplarınızı takip ediyor ve %%98 başarı oranımızla öğrenci vizesi başvuru sürecinizde her adımda yanınızda oluyoruz. Tüm yasal süreçlerde eksiksiz rehberlik sunuyoruz.'
     },
     step4: {
       title: 'Varış & Yerleşme Desteği',
@@ -181,7 +181,7 @@ export default {
     subtitle: 'Makedonya\'da Eğitim Yolculuğunuzda Güvenilir Rehberiniz',
     experience: 'Yıllık Tecrübe',
     feature1: 'Profesyonel Başvuru Desteği',
-    feature2: 'Vize Süreçlerinde %98 Başarı',
+    feature2: 'Vize Süreçlerinde %%98 Başarı',
     feature3: 'Yerleşim ve Adaptasyon Desteği',
     feature4: 'Sürekli Eğitim Danışmanlığı',
     contactUs: 'BİZE ULAŞIN',
@@ -191,7 +191,7 @@ export default {
     ],
     features: [
       'Profesyonel Başvuru Desteği',
-      'Vize Süreçlerinde %98 Başarı',
+      'Vize Süreçlerinde %%98 Başarı',
       'Yerleşim ve Adaptasyon Desteği',
       'Sürekli Eğitim Danışmanlığı'
     ]
@@ -203,21 +203,21 @@ export default {
     data: [
       {
         image: '/images/news1.jpeg',
-        title: 'Öğrenciler İçin Online Vize Portalı Açıldı',
-        summary: 'İçişleri Bakanlığı, uluslararası öğrencilerin oturum uzatma başvurularını çevrim içi yapabileceği ve süreci anlık takip edebileceği dijital portali devreye aldı. İşlem süresi %40 kısaldı.',
-        date: { day: '25', month: 'TEM' }
+        title: 'AB Komisyonu Katılım Müzakerelerini Tavsiye Etti',
+        summary: 'Avrupa Komisyonu, Kuzey Makedonya ile AB katılım müzakerelerinin resmen başlatılmasını önerdi. Bu adım, öğrencilerin gelecekteki AB sınırları içinde hareketliliğini artırabilir.',
+        date: { day: '05', month: 'TEM' }
       },
       {
         image: '/images/news2.jpeg',
-        title: '2025 Yılı Devlet Burs Programı Duyuruldu',
-        summary: 'Kuzey Makedonya, yabancı öğrenciler için 150 tam, 300 kısmi burs verecek. Başvurular 1 Ağustos–30 Eylül 2025 tarihleri arasında alınacak.',
-        date: { day: '10', month: 'TEM' }
+        title: 'Uluslararası Öğrencilere Burs Programı Açıldı',
+        summary: 'Makedonya Eğitim Bakanlığı, 2025 dönemi için 100 tam burslu uluslararası öğrenci programını duyurdu. Başvurular 31 Mart 2025 tarihine kadar online olarak kabul edilecek.',
+        date: { day: '15', month: 'MAR' }
       },
       {
         image: '/images/news3.jpeg',
-        title: 'AB Müzakereleri Diploma Denkliğini Kolaylaştırıyor',
-        summary: 'Açılan yeni AB müzakere fasıllarıyla Makedonya diplomaları 12 ek Avrupa ülkesinde otomatik tanınacak, mezunların istihdam olanakları artacak.',
-        date: { day: '30', month: 'HAZ' }
+        title: 'Wizz Air Üsküp’e Direkt Uçuşları Başlattı',
+        summary: 'Wizz Air, Ekim 2024 itibarıyla İstanbul–Üsküp arasında haftada iki yeni direkt sefer başlattı. Öğrenci indirimleri 30 Eylül’e kadar geçerli.',
+        date: { day: '01', month: 'EKI' }
       }
     ]
   },

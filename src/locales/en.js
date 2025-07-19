@@ -20,7 +20,7 @@ export default {
     discoverAdvantages: 'DISCOVER ADVANTAGES',
     experience: '5+ Years Experience',
     students: '1200+ Happy Students',
-    visaSuccess: '98% Visa Success',
+    visaSuccess: '98%% Visa Success',
     exploreMore: 'EXPLORE MORE'
   },
   advantages: {
@@ -103,7 +103,7 @@ export default {
     },
     step3: {
       title: 'University Acceptance & Visa Procedures',
-      description: 'We manage your application process to the selected university, track your acceptance letters, and are by your side at every step of your student visa application process with our 98% success rate. We provide comprehensive guidance in all legal processes.'
+      description: 'We manage your application process to the selected university, track your acceptance letters, and are by your side at every step of your student visa application process with our 98%% success rate. We provide comprehensive guidance in all legal processes.'
     },
     step4: {
       title: 'Arrival & Settlement Support',
@@ -181,7 +181,7 @@ export default {
     subtitle: 'Your Reliable Guide in Your Educational Journey in North Macedonia',
     experience: 'Years Experience',
     feature1: 'Professional Application Support',
-    feature2: '98% Success in Visa Processes',
+    feature2: '98%% Success in Visa Processes',
     feature3: 'Settlement and Adaptation Support',
     feature4: 'Continuous Educational Consulting',
     contactUs: 'CONTACT US',
@@ -191,7 +191,7 @@ export default {
     ],
     features: [
       'Professional Application Support',
-      '98% Success in Visa Processes',
+      '98%% Success in Visa Processes',
       'Settlement and Adaptation Support',
       'Continuous Educational Consulting'
     ]
@@ -203,21 +203,21 @@ export default {
     data: [
       {
         image: '/images/news1.jpeg',
-        title: 'Online Visa Portal for Students Goes Live',
-        summary: `The Ministry of Interior has launched a fully digital portal where international students can submit residence-permit extensions and track visa status in real-time, cutting processing times by 40%.`,
-        date: { day: '25', month: 'JUL' }
+        title: 'EU Commission Recommends Accession Talks',
+        summary: `The European Commission has recommended to the European Council the formal start of EU accession negotiations with North Macedonia, a major milestone that could boost student mobility across Europe in the coming years.`,
+        date: { day: '05', month: 'JUL' }
       },
       {
         image: '/images/news2.jpeg',
-        title: '2025 Government Scholarship Programme Announced',
-        summary: `North Macedonia will grant 150 full and 300 partial scholarships to foreign students in STEM and Health Sciences. Applications open 1 August – 30 September 2025.`,
-        date: { day: '10', month: 'JUL' }
+        title: 'Government Scholarships for International Students',
+        summary: `North Macedonia’s Ministry of Education announced 100 full scholarships covering tuition and accommodation for top international students in 2025. Applications are open online until 31 March 2025.`,
+        date: { day: '15', month: 'MAR' }
       },
       {
         image: '/images/news3.jpeg',
-        title: 'EU Accession Talks Boost Diploma Recognition',
-        summary: `With new EU negotiation chapters opened, Macedonian degrees will now be automatically recognised in 12 additional European countries, easing post-graduation employment.`,
-        date: { day: '30', month: 'JUN' }
+        title: 'Wizz Air Launches Direct Flights to Skopje',
+        summary: `Wizz Air has inaugurated two new weekly direct routes between Istanbul and Skopje starting October 2024, with special student discounts available until 30 September.`,
+        date: { day: '01', month: 'OCT' }
       }
     ]
   },

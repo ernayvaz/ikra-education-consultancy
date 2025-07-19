@@ -77,3 +77,30 @@ button:focus-visible {
     background-color: #f9f9f9;
   }
 }
+
+/* MOBILE RESPONSIVE ADJUSTMENTS */
+@media (max-width: 768px) {
+  .update-grid, .advantages-grid, .process-steps-grid, .testimonial-grid {
+    grid-template-columns: 1fr !important;
+    gap: 1.5rem !important;
+    padding: 0 1rem !important;
+  }
+  .hero .section-title {
+    font-size: 2rem !important;
+  }
+  .hero p {
+    font-size: 1rem !important;
+  }
+  .container {
+    padding: 0 1rem !important;
+  }
+  .navbar-content {
+    flex-direction: column !important;
+    align-items: flex-start !important;
+  }
+  .nav-links {
+    flex-wrap: wrap !important;
+    gap: 1rem !important;
+    justify-content: flex-start !important;
+  }
+}

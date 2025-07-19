@@ -9,9 +9,14 @@ import LanguageSwitcher from './components/LanguageSwitcher.vue';
 // Use i18n
 const { t, tm, locale } = useI18n();
 
+// Import logo images
+import univ1Logo from '../public/logos/univ1.png';
+import univ2Logo from '../public/logos/univ2.png';
+import univ3Logo from '../public/logos/univ3.png';
+
 // Universities data loaded from i18n
 const rawUniversitiesData = computed(() => tm('universities.data'));
-const logos = ['/logos/univ1.png', '/logos/univ2.png', '/logos/univ3.png'];
+const logos = [univ1Logo, univ2Logo, univ3Logo];
 const universities = computed(() =>
   rawUniversitiesData.value.map((u, idx) => ({
     logo: logos[idx],
@@ -285,21 +290,10 @@ const aboutFeatures = computed(() => tm('about.features'));
           <div class="badge-container">
             <div class="badge">{{ t('hero.badge') }}</div>
           </div>
-          <h1>
-            <template v-if="locale === 'en'">
-              Realize Your 
-              <span class="highlight">{{ t('hero.titleHighlight1') }}</span>
-              Dream in North Macedonia with 
-              <span id="ikra-text" class="highlight-red">{{ t('hero.titleHighlight2') }}</span>
-            </template>
-            <template v-else>
-              Makedonya'da 
-              <span class="highlight">{{ t('hero.titleHighlight1') }}</span>
-              Hayalinizi 
-              <span id="ikra-text" class="highlight-red">{{ t('hero.titleHighlight2') }}</span>
-              ile Gerçekleştirin
-            </template>
-          </h1>
+          <h1 v-html="t('hero.title', [
+            `<span class='highlight'>${t('hero.titleHighlight1')}</span>`,
+            `<span id='ikra-text' class='highlight-red'>${t('hero.titleHighlight2')}</span>`
+          ])"></h1>
           <p>{{ t('hero.description') }}</p>
           <div class="cta-group">
             <a href="#iletisim" class="btn primary hero-btn">{{ t('hero.applyNow') }}</a>
@@ -607,7 +601,7 @@ const aboutFeatures = computed(() => tm('about.features'));
           </div>
               <div class="contact-text">
                 <h3>{{ t('contact.email.title') }}</h3>
-                <p>{{ t('contact.email.value') }}</p>
+                <p><a href="mailto:info@ikra-education.com">info@ikra-education.com</a></p>
           </div>
           </div>
             
@@ -798,7 +792,8 @@ section {
 /* Gradient hover effect for IKRA text using Macedonian flag colors */
 #ikra-text {
   color: #fff !important;
-  display: inline-block !important;
+  display: inline !important;
+  vertical-align: baseline !important;
   font-weight: 800 !important;
   letter-spacing: 2px !important;
   transition: transform 0.3s ease !important;
@@ -4022,5 +4017,30 @@ section {
 }
 
 /* Also add this to your navbar links to include the new section */
+</style>
+
+// Insert mobile-responsive adjustments
+@media (max-width: 768px) {
+  .update-grid, .advantages-grid, .process-steps-grid, .testimonial-grid {
+    grid-template-columns: 1fr !important;
+    gap: 1.5rem !important;
+    padding: 0 1rem !important;
+  }
+  .hero .section-title { font-size: 2rem !important; }
+  .hero p { font-size: 1rem !important; }
+  .container { padding: 0 1rem !important; }
+  .navbar-content {
+    flex-direction: column !important;
+    align-items: flex-start !important;
+  }
+  .nav-links {
+    flex-wrap: wrap !important;
+    gap: 1rem !important;
+    justify-content: flex-start !important;
+  }
+}
+
+// End of mobile adjustments
+<style scoped>
 </style>
 
