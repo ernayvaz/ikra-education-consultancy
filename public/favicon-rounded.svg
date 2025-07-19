@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="512" height="512" viewBox="0 0 512 512" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- Red circular background -->
+  <circle cx="256" cy="256" r="256" fill="#d10019"/>
+  
+  <!-- Stylized "İKRA" text in white -->
+  <g transform="translate(70, 160) scale(0.75)">
+    <!-- İ -->
+    <path d="M40 40h40v200h-40V40z" fill="white"/>
+    <circle cx="60" cy="10" r="10" fill="white"/>
+    
+    <!-- K -->
+    <path d="M100 40h40v80l60-80h50l-70 100 80 100h-55l-65-85v85h-40V40z" fill="white"/>
+    
+    <!-- R -->
+    <path d="M290 40h70c30 0 50 20 50 50 0 20-10 35-25 45 15 5 25 20 25 40 0 40-30 65-70 65h-50V40z" fill="white"/>
+    <path d="M330 120h20c10 0 20-5 20-15s-5-15-20-15h-20v30z" fill="#d10019"/>
+    <path d="M330 200h20c15 0 25-5 25-20s-10-20-25-20h-20v40z" fill="#d10019"/>
+    
+    <!-- A -->
+    <path d="M450 40h40l50 200h-45l-10-40h-50l-10 40h-40L450 40z" fill="white"/>
+    <path d="M445 160h30l-15-70-15 70z" fill="#d10019"/>
+  </g>
+</svg> 

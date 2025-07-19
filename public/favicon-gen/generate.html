@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>IKRA Favicon Generator</title>
+  <style>
+    body {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      font-family: Arial, sans-serif;
+      padding: 20px;
+    }
+    canvas {
+      border: 1px solid #ccc;
+      margin: 20px 0;
+    }
+    .buttons {
+      display: flex;
+      gap: 10px;
+    }
+    button {
+      padding: 10px 20px;
+      background: #0d6efd;
+      color: white;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+    img {
+      margin: 20px 0;
+    }
+  </style>
+</head>
+<body>
+  <h1>IKRA Favicon Generator</h1>
+  <canvas id="favicon" width="512" height="512"></canvas>
+  <div class="buttons">
+    <button id="generate">Generate Favicon</button>
+    <button id="download">Download Favicon</button>
+  </div>
+  <div id="preview"></div>
+
+  <script>
+    const canvas = document.getElementById('favicon');
+    const ctx = canvas.getContext('2d');
+    const generateBtn = document.getElementById('generate');
+    const downloadBtn = document.getElementById('download');
+    const preview = document.getElementById('preview');
+    
+    // Red color from the website (var(--primary-color-saturated))
+    const redColor = '#d10019';
+    
+    function drawCircle() {
+      // Clear canvas
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+      
+      // Draw red circle background
+      ctx.beginPath();
+      ctx.arc(canvas.width / 2, canvas.height / 2, canvas.width / 2, 0, Math.PI * 2);
+      ctx.fillStyle = redColor;
+      ctx.fill();
+    }
+
+    function generate() {
+      // First draw the red circle
+      drawCircle();
+      
+      // Then load and draw the IKRA logo in white
+      const logo = new Image();
+      logo.onload = function() {
+        // Calculate dimensions to fit within the circle with some padding
+        const padding = canvas.width * 0.15; // 15% padding
+        const size = canvas.width - (padding * 2);
+        
+        // Draw the logo in white (we'll use a white-only version of the logo)
+        ctx.globalCompositeOperation = 'destination-out'; // Cut out the logo shape
+        ctx.drawImage(logo, padding, padding, size, size);
+        
+        // Reset composite operation
+        ctx.globalCompositeOperation = 'source-over';
+        
+        // Draw a white fill
+        ctx.fillStyle = 'white';
+        ctx.fillRect(0, 0, canvas.width, canvas.height);
+        
+        // Use destination-in to keep only what's inside the logo shape
+        ctx.globalCompositeOperation = 'destination-in';
+        ctx.drawImage(logo, padding, padding, size, size);
+        
+        // Reset composite operation
+        ctx.globalCompositeOperation = 'source-over';
+        
+        // Create the preview
+        updatePreview();
+      };
+      
+      // Load the IKRA logo (the alpha channel will be used for the shape)
+      logo.src = '/IKRA_logo.png';
+    }
+    
+    function updatePreview() {
+      // Clear previous preview
+      preview.innerHTML = '';
+      
+      // Create various sizes for testing
+      const sizes = [16, 32, 48, 64, 128];
+      
+      sizes.forEach(size => {
+        const img = document.createElement('img');
+        img.width = size;
+        img.height = size;
+        img.src = canvas.toDataURL('image/png');
+        img.style.border = '1px solid #ccc';
+        img.style.margin = '5px';
+        preview.appendChild(img);
+      });
+    }
+    
+    function download() {
+      const link = document.createElement('a');
+      link.download = 'ikra-favicon.png';
+      link.href = canvas.toDataURL('image/png');
+      link.click();
+    }
+    
+    // Event listeners
+    generateBtn.addEventListener('click', generate);
+    downloadBtn.addEventListener('click', download);
+    
+    // Generate on load
+    window.onload = generate;
+  </script>
+</body>
+</html> 
