@@ -6,7 +6,17 @@ export default defineConfig({
   base: './',
   plugins: [vue()],
   build: {
-    // Disable Vite's modulepreload polyfill to avoid invalid fetches on extension links
-    polyfillModulePreload: false,
+    // Fix deprecated warning and improve module loading
+    modulePreload: {
+      polyfill: false
+    },
+    rollupOptions: {
+      output: {
+        manualChunks: undefined
+      }
+    }
   },
+  optimizeDeps: {
+    include: ['vue', 'vue-i18n']
+  }
 }) 

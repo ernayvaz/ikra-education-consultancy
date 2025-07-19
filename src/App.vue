@@ -9,14 +9,9 @@ import LanguageSwitcher from './components/LanguageSwitcher.vue';
 // Use i18n
 const { t, tm, locale } = useI18n();
 
-// Import logo images
-import univ1Logo from '../public/logos/univ1.png';
-import univ2Logo from '../public/logos/univ2.png';
-import univ3Logo from '../public/logos/univ3.png';
-
 // Universities data loaded from i18n
 const rawUniversitiesData = computed(() => tm('universities.data'));
-const logos = [univ1Logo, univ2Logo, univ3Logo];
+const logos = ['/logos/univ1.png', '/logos/univ2.png', '/logos/univ3.png'];
 const universities = computed(() =>
   rawUniversitiesData.value.map((u, idx) => ({
     logo: logos[idx],
