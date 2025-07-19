@@ -64,6 +64,8 @@ const statsConfig = [
   { icon: 'fa-passport', value: '98%', labelKey: 'stats.visaSuccess' }
 ];
 
+const mobileMenuOpen = ref(false);
+
 const newsImages = ref([
   '/images/news1.jpeg',
   '/images/news2.jpeg',
@@ -255,11 +257,14 @@ const aboutFeatures = computed(() => tm('about.features'));
     <!-- Navbar -->
     <nav class="navbar">
       <div class="navbar-content">
+        <button class="mobile-menu-button" @click="mobileMenuOpen = !mobileMenuOpen">
+          <i :class="mobileMenuOpen ? 'fas fa-times' : 'fas fa-bars'"></i>
+        </button>
         <a href="#" class="logo-container">
           <img :src="logoSrc" :srcset="logoSrc + ' 2x'" :alt="locale.value === 'en' ? 'IKRA Education Consultancy Logo' : 'İKRA Eğitim Danışmanlığı Logo'" class="logo-image">
         </a>
         <div class="nav-right">
-        <ul class="nav-links">
+        <ul :class="['nav-links', { open: mobileMenuOpen }]">
             <li><a href="#">{{ t('nav.home') }}</a></li>
             <li><a href="#avantajlar">{{ t('nav.advantages') }}</a></li>
             <li><a href="#basvuru-sureci">{{ t('nav.application') }}</a></li>
@@ -4042,5 +4047,10 @@ section {
 
 // End of mobile adjustments
 <style scoped>
+/* Ensure email link in contact section displays in white */
+.contact-text a {
+  color: #ffffff !important;
+  text-decoration: none !important;
+}
 </style>
 

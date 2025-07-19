@@ -65,6 +65,45 @@ button:focus-visible {
   text-align: center;
 }
 
+/* Email link color override in contact section */
+#iletisim .contact-text a {
+  color: #ffffff !important;
+  text-decoration: none !important;
+}
+
+/* Mobile menu toggle */
+.mobile-menu-button {
+  display: none;
+  background: none;
+  border: none;
+  font-size: 1.5rem;
+  color: inherit;
+  cursor: pointer;
+}
+@media (max-width: 768px) {
+  .mobile-menu-button {
+    display: block;
+  }
+  .nav-right {
+    position: relative;
+  }
+  .nav-links {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    flex-direction: column;
+    background-color: #242424;
+    gap: 1rem;
+    padding: 1rem;
+    z-index: 1000;
+  }
+  .nav-links.open {
+    display: flex;
+  }
+}
+
 @media (prefers-color-scheme: light) {
   :root {
     color: #213547;
@@ -102,5 +141,14 @@ button:focus-visible {
     flex-wrap: wrap !important;
     gap: 1rem !important;
     justify-content: flex-start !important;
+  }
+  .trust-indicators {
+    flex-wrap: wrap !important;
+    gap: 1rem !important;
+    justify-content: center !important;
+  }
+  .cta-group {
+    flex-direction: column !important;
+    gap: 1rem !important;
   }
 }
