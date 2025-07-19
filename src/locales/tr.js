@@ -234,7 +234,7 @@ export default {
     },
     email: {
       title: 'E-posta',
-      value: 'info@ikra-education.com'
+      value: 'info@@ikra-education.com'
     },
     form: {
       name: 'Adınız Soyadınız',

@@ -234,7 +234,7 @@ export default {
     },
     email: {
       title: 'Email',
-      value: 'info@ikra-education.com'
+      value: 'info@@ikra-education.com'
     },
     form: {
       name: 'Your Full Name',
