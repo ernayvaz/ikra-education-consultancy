@@ -7,13 +7,13 @@ const { locale, t } = useI18n()
 const isOpen = ref(false)
 const isMounted = ref(false)
 
-const languages = [
+const languages = computed(() => [
   { code: 'tr', name: t('languageSwitcher.tr'), nativeName: 'Türkçe' },
   { code: 'en', name: t('languageSwitcher.en'), nativeName: 'English' }
-]
+])
 
 const currentLanguage = computed(() => {
-  return languages.find(lang => lang.code === locale.value)
+  return languages.value.find(lang => lang.code === locale.value)
 })
 
 const toggleDropdown = () => {

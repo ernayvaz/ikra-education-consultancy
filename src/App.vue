@@ -285,10 +285,21 @@ const aboutFeatures = computed(() => tm('about.features'));
           <div class="badge-container">
             <div class="badge">{{ t('hero.badge') }}</div>
           </div>
-          <h1 v-html="t('hero.title', [
-            `<span class='highlight'>${t('hero.titleHighlight1')}</span>`,
-            `<span id='ikra-text' class='highlight-red'>${t('hero.titleHighlight2')}</span>`
-          ])"></h1>
+          <h1>
+            <template v-if="locale === 'en'">
+              Realize Your 
+              <span class="highlight">{{ t('hero.titleHighlight1') }}</span>
+              Dream in North Macedonia with 
+              <span id="ikra-text" class="highlight-red">{{ t('hero.titleHighlight2') }}</span>
+            </template>
+            <template v-else>
+              Makedonya'da 
+              <span class="highlight">{{ t('hero.titleHighlight1') }}</span>
+              Hayalinizi 
+              <span id="ikra-text" class="highlight-red">{{ t('hero.titleHighlight2') }}</span>
+              ile Gerçekleştirin
+            </template>
+          </h1>
           <p>{{ t('hero.description') }}</p>
           <div class="cta-group">
             <a href="#iletisim" class="btn primary hero-btn">{{ t('hero.applyNow') }}</a>
