@@ -3,6 +3,7 @@ import vue from '@vitejs/plugin-vue'
 
 // https://vitejs.dev/config/
 export default defineConfig({
+  base: './',
   plugins: [vue()],
   build: {
     // Disable Vite's modulepreload polyfill to avoid invalid fetches on extension links
