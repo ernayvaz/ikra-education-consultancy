@@ -4159,5 +4159,26 @@ section {
     transform: translateX(-16px) !important;
   }
 }
+
+/* Position logo in empty left area on mobile hero */
+@media (max-width: 768px) {
+  .hero {
+    position: relative !important;
+  }
+  .hero-brand-showcase {
+    position: absolute !important;
+    top: 50% !important;
+    left: 5% !important;
+    transform: translateY(-50%) !important;
+    max-width: 180px !important; /* slightly reduce size */
+    margin: 0 !important;
+    order: 0 !important; /* remove negative ordering */
+    z-index: 2 !important;
+  }
+  .hero-brand-logo {
+    max-width: 100% !important;
+    height: auto !important;
+  }
+}
 </style>
 
