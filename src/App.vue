@@ -1475,12 +1475,13 @@ section {
   .hero-content {
     padding-top: 20px !important;
     max-width: 100% !important;
-    margin-left: 0 !important;
+    margin-left: -10% !important;
     margin-right: 0 !important;
-    padding-left: 5% !important;
-    padding-right: 5% !important;
-    align-items: center !important;
-    text-align: center !important;
+    width: 100% !important;
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+    align-items: flex-start !important;
+    text-align: left !important;
   }
   
   .hero-brand-showcase {
@@ -4142,13 +4143,20 @@ section {
 /* Use full width for hero content on mobile to utilize blank side space */
 @media (max-width: 768px) {
   .hero-content {
-    margin-left: 0 !important;
+    margin-left: -10% !important;
     margin-right: 0 !important;
     width: 100% !important;
     padding-left: 0 !important;
     padding-right: 0 !important;
     align-items: flex-start !important;
     text-align: left !important;
+  }
+}
+
+/* Shift hero content left slightly on mobile to utilize blank side area */
+@media (max-width: 768px) {
+  .hero-content {
+    transform: translateX(-16px) !important;
   }
 }
 </style>
