@@ -359,16 +359,16 @@ const aboutFeatures = computed(() => tm('about.features'));
             <a href="#iletisim" class="btn primary hero-btn">{{ t('hero.applyNow') }}</a>
             <a href="#avantajlar" class="btn secondary hero-btn-secondary">{{ t('hero.discoverAdvantages') }}</a>
           </div>
-          <div class="trust-indicators" style="display: flex !important; flex-direction: row !important; flex-wrap: nowrap !important; justify-content: center !important; gap: 2rem !important; width: 100% !important; margin-bottom: 3rem !important;">
-            <div class="indicator" style="display: flex !important; flex-direction: row !important; align-items: center !important; white-space: nowrap !important;">
+          <div class="trust-indicators">
+            <div class="indicator">
               <i class="fas fa-check-circle"></i>
               <span>{{ t('hero.experience') }}</span>
             </div>
-            <div class="indicator" style="display: flex !important; flex-direction: row !important; align-items: center !important; white-space: nowrap !important;">
+            <div class="indicator">
               <i class="fas fa-check-circle"></i>
               <span>{{ t('hero.students') }}</span>
             </div>
-            <div class="indicator" style="display: flex !important; flex-direction: row !important; align-items: center !important; white-space: nowrap !important;">
+            <div class="indicator">
               <i class="fas fa-check-circle"></i>
               <span>{{ t('hero.visaSuccess') }}</span>
             </div>
@@ -4119,15 +4119,23 @@ section {
   }
 }
 
-/* Mobile: wrap trust indicators under buttons to fit small screens */
-@media (max-width: 480px) {
+/* Stack trust indicators vertically on mobile to fit screen */
+@media (max-width: 768px) {
   .trust-indicators {
-    flex-wrap: wrap !important;
-    gap: 1rem !important;
+    display: flex !important;
+    flex-direction: row !important;
+    justify-content: space-between !important;
+    width: 100% !important;
+    gap: 0.5rem !important;
+    margin-bottom: 2rem !important;
   }
-  .trust-indicators .indicator {
-    flex: 0 0 50% !important;
+  .indicator {
+    flex: 1 !important;
+    display: flex !important;
+    align-items: center !important;
     justify-content: center !important;
+    white-space: normal !important;
+    margin-bottom: 0 !important;
   }
 }
 </style>
