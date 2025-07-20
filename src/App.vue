@@ -4168,5 +4168,12 @@ section {
     max-width: 200px !important;
   }
 }
+
+/* Adjust hero brand logo on mobile: shift left to align with content */
+@media (max-width: 768px) {
+  .hero-brand-showcase {
+    transform: translateX(-16px) !important;
+  }
+}
 </style>
 
