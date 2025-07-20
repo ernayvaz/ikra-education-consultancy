@@ -20,7 +20,7 @@ export default {
     discoverAdvantages: 'DISCOVER ADVANTAGES',
     experience: '5+ Years Experience',
     students: '1200+ Happy Students',
-    visaSuccess: '98%% Visa Success',
+    visaSuccess: '98% Visa Success',
     exploreMore: 'EXPLORE MORE'
   },
   advantages: {
@@ -103,7 +103,7 @@ export default {
     },
     step3: {
       title: 'University Acceptance & Visa Procedures',
-      description: 'We manage your application process to the selected university, track your acceptance letters, and are by your side at every step of your student visa application process with our 98%% success rate. We provide comprehensive guidance in all legal processes.'
+      description: 'We manage your application process to the selected university, track your acceptance letters, and are by your side at every step of your student visa application process with our 98% success rate. We provide comprehensive guidance in all legal processes.'
     },
     step4: {
       title: 'Arrival & Settlement Support',
@@ -181,7 +181,7 @@ export default {
     subtitle: 'Your Reliable Guide in Your Educational Journey in North Macedonia',
     experience: 'Years Experience',
     feature1: 'Professional Application Support',
-    feature2: '98%% Success in Visa Processes',
+    feature2: '98% Success in Visa Processes',
     feature3: 'Settlement and Adaptation Support',
     feature4: 'Continuous Educational Consulting',
     contactUs: 'CONTACT US',
@@ -191,7 +191,7 @@ export default {
     ],
     features: [
       'Professional Application Support',
-      '98%% Success in Visa Processes',
+      '98% Success in Visa Processes',
       'Settlement and Adaptation Support',
       'Continuous Educational Consulting'
     ]
