@@ -395,3 +395,26 @@ button:focus-visible {
   body { padding-top: calc(var(--nav-h-desktop) + var(--safe-top)); }
   .navbar { height: calc(var(--nav-h-desktop) + var(--safe-top)); }
 }
+
+@media (max-width: 768px) {
+  /* Override hero height to use dynamic viewport unit */
+  .hero {
+    min-height: calc(100dvh - var(--nav-h-mobile) - 16px) !important;
+  }
+  /* Ensure CTA buttons never overflow and stay full width */
+  .hero .btn {
+    white-space: nowrap !important;
+    overflow: hidden !important;
+    text-overflow: ellipsis !important;
+  }
+  /* Social icon column offset */
+  .social-icons {
+    right: 6px !important;
+    bottom: 18px !important;
+  }
+  .social-icon {
+    width: 36px !important;
+    height: 36px !important;
+    font-size: 0.95rem !important;
+  }
+}
