@@ -4138,5 +4138,13 @@ section {
     margin-bottom: 0 !important;
   }
 }
+
+/* Use full width for hero content on mobile to utilize blank side space */
+@media (max-width: 768px) {
+  .hero-content {
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+  }
+}
 </style>
 
