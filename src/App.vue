@@ -4146,5 +4146,23 @@ section {
     padding-right: 0 !important;
   }
 }
+
+/* Mobile layout tweaks: left-align hero text and center CTA buttons */
+@media (max-width: 768px) {
+  .hero-text {
+    text-align: left !important;
+  }
+  .cta-group {
+    align-items: center !important;
+    width: auto !important;
+  }
+  .hero-btn,
+  .hero-btn-secondary {
+    width: auto !important;
+    max-width: 300px !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+  }
+}
 </style>
 
