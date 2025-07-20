@@ -4156,7 +4156,7 @@ section {
 /* Shift hero content left slightly on mobile to utilize blank side area */
 @media (max-width: 768px) {
   .hero-content {
-    transform: translateX(-32px) !important;
+    transform: translateX(-40px) !important;
   }
 }
 
@@ -4172,7 +4172,7 @@ section {
 /* Adjust hero brand logo on mobile: shift left to align with content */
 @media (max-width: 768px) {
   .hero-brand-showcase {
-    transform: translateX(-32px) !important;
+    transform: translateX(-40px) !important;
   }
 }
 </style>
