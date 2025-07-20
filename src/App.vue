@@ -4118,5 +4118,17 @@ section {
     display: none !important;
   }
 }
+
+/* Mobile: wrap trust indicators under buttons to fit small screens */
+@media (max-width: 480px) {
+  .trust-indicators {
+    flex-wrap: wrap !important;
+    gap: 1rem !important;
+  }
+  .trust-indicators .indicator {
+    flex: 0 0 50% !important;
+    justify-content: center !important;
+  }
+}
 </style>
 
