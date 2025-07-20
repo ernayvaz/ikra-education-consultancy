@@ -365,3 +365,31 @@ button:focus-visible {
   body { padding-top: calc(var(--nav-h-desktop) + var(--safe-top)); }
   .navbar { height: calc(var(--nav-h-desktop) + var(--safe-top)); }
 }
+
+/* === HERO CENTERING FOR MOBILE === */
+@media (max-width: 768px) {
+  .hero-content {
+    align-items: center !important;
+    text-align: center !important;
+  }
+  .hero-text {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    text-align: center !important;
+  }
+  .badge-container {
+    margin: 0 auto 1rem auto !important;
+  }
+  .cta-group {
+    width: 100% !important;
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    gap: 1rem !important;
+  }
+  .trust-indicators {
+    justify-content: center !important;
+    margin: 1rem auto 0 auto !important;
+  }
+}
