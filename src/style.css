@@ -11,6 +11,7 @@
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  --nav-h-mobile: 80px; /* default desktop height */
 }
 
 a {
@@ -28,6 +29,7 @@ body {
   place-items: center;
   min-width: 320px;
   min-height: 100vh;
+  padding-top: var(--nav-h-mobile);
 }
 
 h1 {
@@ -321,5 +323,60 @@ button:focus-visible {
   .cta-group {
     flex-direction: column !important;
     gap: 1rem !important;
+  }
+}
+
+/* Equalize navbar action buttons */
+.mobile-menu-button,
+.language-button {
+  width: 36px !important;
+  height: 36px !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  padding: 4px !important;
+  box-sizing: border-box;
+}
+
+@media (max-width: 768px) {
+  :root {
+    --nav-h-mobile: 64px; /* mobile navbar height */
+  }
+
+  /* Navbar dimensions */
+  .navbar {
+    height: var(--nav-h-mobile) !important;
+  }
+
+  .navbar-content {
+    min-height: var(--nav-h-mobile) !important;
+    padding: 0 16px !important;
+  }
+
+  /* Logo & action buttons unified size */
+  .logo-image {
+    height: 48px !important;
+    width: auto !important;
+  }
+
+  .mobile-menu-button,
+  .language-button {
+    width: 48px !important;
+    height: 48px !important;
+    padding: 0 !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+  }
+
+  /* Body offset so hero starts below fixed navbar */
+  body {
+    padding-top: calc(var(--nav-h-mobile) + 8px) !important;
+  }
+
+  /* Hero top spacing / height fix */
+  .hero {
+    padding-top: 0 !important;
+    min-height: calc(100vh - var(--nav-h-mobile) - 8px) !important;
   }
 }
