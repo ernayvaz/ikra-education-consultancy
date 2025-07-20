@@ -1482,7 +1482,6 @@ section {
     padding-right: 0 !important;
     align-items: flex-start !important;
     text-align: left !important;
-    transform: translateX(-48px) !important;
   }
   
   .hero-brand-showcase {
@@ -1493,7 +1492,6 @@ section {
     max-width: 280px !important;
     margin: 0 auto 2rem auto !important;
     order: -1 !important;
-    transform: translateX(-48px) !important;
   }
   
   .hero-brand-logo {
@@ -4158,7 +4156,7 @@ section {
 /* Shift hero content left slightly on mobile to utilize blank side area */
 @media (max-width: 768px) {
   .hero-content {
-    transform: translateX(-40px) !important;
+    transform: translateX(-48px) !important;
   }
 }
 
@@ -4174,21 +4172,7 @@ section {
 /* Adjust hero brand logo on mobile: shift left to align with content */
 @media (max-width: 768px) {
   .hero-brand-showcase {
-    transform: translateX(-40px) !important;
-  }
-}
-
-/* Final mobile override: shift content, logo, and background for better alignment */
-@media (max-width: 768px) {
-  .hero-content {
-    margin-left: -10% !important;
     transform: translateX(-48px) !important;
-  }
-  .hero-brand-showcase {
-    transform: translateX(-48px) !important;
-  }
-  .hero {
-    background-position: 45% center !important;
   }
 }
 </style>
