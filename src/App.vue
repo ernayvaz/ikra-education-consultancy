@@ -749,6 +749,7 @@ const aboutFeatures = computed(() => tm('about.features'));
   --text-muted: #6c757d; /* Bootstrap Muted Text */
   --gradient-bg: linear-gradient(90deg, #0d6efd, #dc3545); /* Updated Gradient */
   --border-color: #dee2e6; /* Bootstrap Border Color */
+  --nav-h-mobile: 80px; /* match default desktop height */
 }
 
 html, body {
@@ -901,14 +902,14 @@ section {
   background-color: rgba(0, 0, 0, 0.2);
   backdrop-filter: blur(8px);
   border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-  padding: 0.5rem 0;
+  height: var(--nav-h-mobile);
+  padding: 0;
   position: fixed;
   top: 0;
   left: 0;
   width: 100vw;
   max-width: 100vw;
   z-index: 1000;
-  transition: all 0.3s ease;
 }
 
 .navbar.scrolled {
@@ -929,7 +930,7 @@ section {
   margin: 0;
   padding: 0 5%;
   box-sizing: border-box;
-  min-height: 80px;
+  min-height: var(--nav-h-mobile);
 }
 
 .nav-container {
@@ -1464,8 +1465,8 @@ section {
 
 @media (max-width: 768px) {
   .hero {
-    min-height: calc(100vh - 70px) !important;
-    padding-top: 0 !important;
+    min-height: calc(100vh - var(--nav-h-mobile) - 16px) !important;
+    padding-top: calc(var(--nav-h-mobile) + 16px) !important;
     display: flex !important;
     align-items: flex-start !important;
     margin-top: 0 !important;
