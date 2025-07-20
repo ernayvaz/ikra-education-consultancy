@@ -11,7 +11,15 @@
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  --nav-h-mobile: 80px; /* default desktop height */
+  --nav-h-desktop: 80px;
+  --nav-h-mobile: 60px;
+  --safe-top: 0px; /* will be overridden if device has notch */
+}
+@supports (padding: constant(safe-area-inset-top)) {
+  :root { --safe-top: constant(safe-area-inset-top); }
+}
+@supports (padding: env(safe-area-inset-top)) {
+  :root { --safe-top: env(safe-area-inset-top); }
 }
 
 a {
@@ -29,7 +37,7 @@ body {
   place-items: center;
   min-width: 320px;
   min-height: 100vh;
-  padding-top: var(--nav-h-mobile);
+  padding-top: calc(var(--nav-h-mobile) + var(--safe-top));
 }
 
 h1 {
@@ -326,54 +334,34 @@ button:focus-visible {
   }
 }
 
-/* Equalize navbar action buttons */
-.mobile-menu-button,
-.language-button {
-  width: 36px !important;
-  height: 36px !important;
+/* Standard navbar sizing */
+.navbar {
+  height: calc(var(--nav-h-mobile) + var(--safe-top));
+  padding-top: var(--safe-top);
+}
+
+/* Align logo and action buttons */
+.navbar .logo-container,
+.navbar .nav-right {
+  display: flex;
+  align-items: center;
+  height: var(--nav-h-mobile);
+}
+.logo-image {
+  height: 40px !important;
+  width: auto !important;
+}
+.language-button,
+.mobile-menu-button {
+  width: 40px !important;
+  height: 40px !important;
+  padding: 0 !important;
   display: flex !important;
   align-items: center !important;
   justify-content: center !important;
-  padding: 4px !important;
-  box-sizing: border-box;
 }
 
-@media (max-width: 768px) {
-  :root {
-    --nav-h-mobile: 56px;
-  }
-
-  /* Navbar tweaks */
-  .navbar {
-    height: var(--nav-h-mobile) !important;
-    padding: 0 !important;
-    background: #0d0d0d !important;
-    backdrop-filter: none !important;
-  }
-
-  .navbar-content {
-    min-height: var(--nav-h-mobile) !important;
-    padding: 0 3.5% !important;
-  }
-
-  /* Logo + buttons same height */
-  .logo-image {
-    height: 36px !important;
-    width: auto !important;
-  }
-
-  .mobile-menu-button,
-  .language-button {
-    width: 36px !important;
-    height: 36px !important;
-  }
-
-  /* Hero top spacing */
-  .hero {
-    padding-top: calc(var(--nav-h-mobile) + 8px) !important;
-  }
-
-  .hero-content {
-    padding-top: 0 !important;
-  }
+@media (min-width: 769px) {
+  body { padding-top: calc(var(--nav-h-desktop) + var(--safe-top)); }
+  .navbar { height: calc(var(--nav-h-desktop) + var(--safe-top)); }
 }
