@@ -4142,26 +4142,13 @@ section {
 /* Use full width for hero content on mobile to utilize blank side space */
 @media (max-width: 768px) {
   .hero-content {
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+    width: 100% !important;
     padding-left: 0 !important;
     padding-right: 0 !important;
-  }
-}
-
-/* Mobile layout tweaks: left-align hero text and center CTA buttons */
-@media (max-width: 768px) {
-  .hero-text {
+    align-items: flex-start !important;
     text-align: left !important;
-  }
-  .cta-group {
-    align-items: center !important;
-    width: auto !important;
-  }
-  .hero-btn,
-  .hero-btn-secondary {
-    width: auto !important;
-    max-width: 300px !important;
-    margin-left: auto !important;
-    margin-right: auto !important;
   }
 }
 </style>
