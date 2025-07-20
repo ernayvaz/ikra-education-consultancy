@@ -1473,16 +1473,14 @@ section {
   }
   
   .hero-content {
-    margin-left: auto;
-    margin-right: auto;
-    align-items: center;
-    text-align: center;
-    padding-top: 0 !important;
+    padding-top: 20px !important;
     max-width: 100% !important;
     margin-left: 0 !important;
     margin-right: 0 !important;
     padding-left: 5% !important;
     padding-right: 5% !important;
+    align-items: center !important;
+    text-align: center !important;
   }
   
   .hero-brand-showcase {
@@ -3694,7 +3692,7 @@ section {
     margin-right: auto;
     align-items: center;
     text-align: center;
-    padding-top: 120px;
+    padding-top: 180px;
   }
   
   .hero-text {
@@ -4113,5 +4111,12 @@ section {
 }
 
 /* Also add this to your navbar links to include the new section */
+
+/* Hide the mobile menu button on desktop view */
+@media (min-width: 769px) {
+  .mobile-menu-button {
+    display: none !important;
+  }
+}
 </style>
 
