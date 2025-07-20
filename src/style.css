@@ -340,43 +340,40 @@ button:focus-visible {
 
 @media (max-width: 768px) {
   :root {
-    --nav-h-mobile: 64px; /* mobile navbar height */
+    --nav-h-mobile: 56px;
   }
 
-  /* Navbar dimensions */
+  /* Navbar tweaks */
   .navbar {
     height: var(--nav-h-mobile) !important;
+    padding: 0 !important;
+    background: #0d0d0d !important;
+    backdrop-filter: none !important;
   }
 
   .navbar-content {
     min-height: var(--nav-h-mobile) !important;
-    padding: 0 16px !important;
+    padding: 0 3.5% !important;
   }
 
-  /* Logo & action buttons unified size */
+  /* Logo + buttons same height */
   .logo-image {
-    height: 48px !important;
+    height: 36px !important;
     width: auto !important;
   }
 
   .mobile-menu-button,
   .language-button {
-    width: 48px !important;
-    height: 48px !important;
-    padding: 0 !important;
-    display: flex !important;
-    align-items: center !important;
-    justify-content: center !important;
+    width: 36px !important;
+    height: 36px !important;
   }
 
-  /* Body offset so hero starts below fixed navbar */
-  body {
+  /* Hero top spacing */
+  .hero {
     padding-top: calc(var(--nav-h-mobile) + 8px) !important;
   }
 
-  /* Hero top spacing / height fix */
-  .hero {
+  .hero-content {
     padding-top: 0 !important;
-    min-height: calc(100vh - var(--nav-h-mobile) - 8px) !important;
   }
 }

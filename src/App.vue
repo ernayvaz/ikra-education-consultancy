@@ -1473,14 +1473,16 @@ section {
   }
   
   .hero-content {
-    padding-top: 20px !important;
+    margin-left: auto;
+    margin-right: auto;
+    align-items: center;
+    text-align: center;
+    padding-top: 0 !important;
     max-width: 100% !important;
     margin-left: 0 !important;
     margin-right: 0 !important;
     padding-left: 5% !important;
     padding-right: 5% !important;
-    align-items: center !important;
-    text-align: center !important;
   }
   
   .hero-brand-showcase {
@@ -3692,7 +3694,7 @@ section {
     margin-right: auto;
     align-items: center;
     text-align: center;
-    padding-top: 180px;
+    padding-top: 120px;
   }
   
   .hero-text {
@@ -4111,70 +4113,5 @@ section {
 }
 
 /* Also add this to your navbar links to include the new section */
-</style>
-
-/* Mobile-responsive adjustments */
-@media (max-width: 768px) {
-  body {
-    padding-top: 70px !important;
-  }
-  
-  .update-grid, .advantages-grid, .process-steps-grid, .testimonial-grid {
-    grid-template-columns: 1fr !important;
-    gap: 1.5rem !important;
-    padding: 0 1rem !important;
-  }
-  .hero .section-title { font-size: 2rem !important; }
-  .hero p { font-size: 1rem !important; }
-  .container { padding: 0 1rem !important; }
-  
-  /* Mobile navbar - force hide desktop navigation */
-  .navbar {
-    padding: 0.5rem 0 !important;
-    position: fixed !important;
-    top: 0 !important;
-    left: 0 !important;
-    right: 0 !important;
-    z-index: 1000 !important;
-  }
-  
-  .navbar-content {
-    justify-content: space-between !important;
-    align-items: center !important;
-    min-height: 60px !important;
-    padding: 0 4% !important;
-    width: 100% !important;
-    box-sizing: border-box !important;
-  }
-  
-  .logo-container {
-    height: 100% !important;
-    display: flex !important;
-    align-items: center !important;
-  }
-  
-  .logo-image {
-    height: 45px !important;
-    width: auto !important;
-  }
-  
-  .nav-links,
-  .desktop-nav {
-    display: none !important;
-  }
-  
-  .nav-right {
-    display: flex !important;
-    align-items: center !important;
-    gap: 0.8rem !important;
-    height: 100% !important;
-  }
-}
-<style scoped>
-/* Ensure email link in contact section displays in white */
-.contact-text a {
-  color: #ffffff !important;
-  text-decoration: none !important;
-}
 </style>
 
