@@ -727,6 +727,12 @@ const aboutFeatures = computed(() => tm('about.features'));
     <footer class="footer">
         <div class="container">
             <p v-html="t('footer.copyright', [new Date().getFullYear()])"></p>
+            <small class="site-credit">
+              Site crafted by
+              <a href="https://www.linkedin.com/in/erenayvaz" class="credit-link" target="_blank" rel="noopener noreferrer" aria-label="Eren Ayvaz on LinkedIn">
+                Eren Ayvaz <i class="fab fa-linkedin-in linkedin-icon" aria-hidden="true"></i>
+              </a>
+            </small>
         </div>
     </footer>
 
@@ -893,6 +899,51 @@ section {
   color: transparent !important;
   transform: translateY(-3px) !important;
   animation: shimmer 1.5s infinite !important;
+}
+
+/* ===== Footer credit ===== */
+.site-credit {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.35rem;
+  font-size: 0.85rem;
+  color: var(--text-muted);
+  margin-top: 1rem;
+}
+
+.credit-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3rem;
+  color: var(--primary-color);
+  font-weight: 600;
+  text-decoration: none;
+  transition: color 0.2s ease, transform 0.2s ease;
+}
+
+.credit-link:hover,
+.credit-link:focus-visible {
+  color: var(--primary-color-saturated);
+  transform: translateY(-2px);
+}
+
+.linkedin-icon {
+  font-size: 1rem;
+  transition: transform 0.2s ease;
+}
+
+.credit-link:hover .linkedin-icon,
+.credit-link:focus-visible .linkedin-icon {
+  transform: scale(1.15);
+}
+
+@media (max-width: 480px) {
+  .site-credit {
+    flex-direction: column;
+    text-align: center;
+    gap: 0.2rem;
+  }
 }
 </style>
 
